@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#fafaf8">
+<title>SOC Field Handbook ~ Mr G (Spark Therapeutics, Fri/Sat 12AM-8AM)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#171717; --ink-2:#0a0b0a; --paper:#fafaf8; --soft:#f3f3f0; --cream:#f7f6f0;
+  --line:#e5e5e0; --line-2:#deded8; --muted:#777; --muted-2:#666; --dim:#8f8f88; --dim-2:#b8b8b0;
+  --lime:#c7ff38; --lime-2:#caff37; --lime-hi:#d7ff70; --peri:#c8d9ff; --moss:#557052; --white:#fff;
+  --font:"DM Sans",Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1); --ease-2:cubic-bezier(.23,1,.32,1);
+  --hdr:168px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + 12px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+  background-image:radial-gradient(900px 420px at 110% -10%,rgba(199,255,56,.16),transparent 60%),radial-gradient(700px 380px at -20% 30%,rgba(200,217,255,.28),transparent 60%);
+  background-attachment:fixed}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:60;background:var(--lime);color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:800;text-decoration:none}
+.skip:focus{top:12px}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--lime-2);text-decoration-thickness:3px;text-underline-offset:3px;font-weight:600}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--peri);outline-offset:3px}
+
+/* ---------- sticky header ---------- */
+.top{position:sticky;top:0;z-index:40;background:rgba(250,250,248,.82);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.top-in{max-width:680px;margin:0 auto;padding:12px 16px 10px;display:grid;gap:10px}
+.brand{display:flex;align-items:center;gap:11px;min-height:36px}
+.mark{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:var(--ink);color:var(--lime);font-weight:800;font-size:19px;letter-spacing:-.04em;box-shadow:0 0 0 1px rgba(199,255,56,.25),0 6px 16px rgba(23,23,23,.18),0 0 18px rgba(199,255,56,.18)}
+.brand-txt{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+.brand-k{font-weight:800;font-size:17px;letter-spacing:-.04em}
+.brand-s{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.search{position:relative;display:flex;align-items:center;height:48px;border-radius:14px;background:var(--white);border:1px solid var(--line);box-shadow:0 1px 0 rgba(23,23,23,.03),0 8px 20px rgba(23,23,23,.05);transition:border-color .2s,box-shadow .2s}
+.search:focus-within{border-color:var(--ink);box-shadow:0 0 0 4px rgba(199,255,56,.45)}
+.search>svg{position:absolute;left:15px;color:var(--muted)}
+.search input{flex:1;min-width:0;height:100%;border:0;background:transparent;padding:0 46px 0 44px;font:500 16px/1 var(--font);color:var(--ink);outline:none;border-radius:14px;-webkit-appearance:none;appearance:none}
+.search input::-webkit-search-cancel-button{display:none}
+.search input::placeholder{color:#96968e}
+.clear{position:absolute;right:6px;width:36px;height:36px;border:0;border-radius:10px;background:var(--soft);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+.tools{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.count{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.count b{color:var(--ink)}
+.pill{white-space:nowrap}
+.tool-btns{display:flex;gap:8px}
+.pill{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--ink);background:var(--lime);color:var(--ink);font:800 11px/1 var(--font);letter-spacing:.09em;text-transform:uppercase;cursor:pointer;transition:transform .16s var(--ease-2),background-color .16s,box-shadow .16s;box-shadow:0 8px 18px rgba(199,255,56,.25)}
+.pill:hover{background:var(--lime-hi);transform:translateY(-1px)}
+.pill:active{transform:scale(.96)}
+.pill-ink{background:var(--ink);color:#f8f8f4;box-shadow:0 8px 18px rgba(23,23,23,.14)}
+.pill-ink:hover{background:#2a2a2a}
+
+/* ---------- layout ---------- */
+.wrap{max-width:680px;margin:0 auto;padding:20px 16px calc(40px + env(safe-area-inset-bottom))}
+
+/* hero card: dark with spinning lime/periwinkle edge, like the site's mentorship card */
+.hero{position:relative;isolation:isolate;overflow:hidden;border-radius:22px;padding:24px 20px 20px;color:#f8f8f4;background:var(--ink);
+  box-shadow:0 0 0 1px rgba(199,255,56,.18),0 18px 42px rgba(23,23,23,.16),0 0 30px rgba(199,255,56,.16)}
+.hero::before{content:"";position:absolute;inset:-120%;z-index:-2;background:conic-gradient(from 0turn,var(--lime) 0 12%,transparent 20% 40%,var(--peri) 50% 62%,transparent 72% 90%,var(--lime) 100%);animation:spin 8s linear infinite}
+.hero::after{content:"";position:absolute;inset:2px;z-index:-1;border-radius:20px;background:radial-gradient(circle at 92% 8%,rgba(199,255,56,.16),transparent 38%),radial-gradient(circle at 0% 100%,rgba(200,217,255,.10),transparent 40%),var(--ink)}
+@keyframes spin{to{transform:rotate(1turn)}}
+.hero-meta{display:flex;justify-content:space-between;gap:14px;font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--dim-2)}
+.hero-meta span:last-child{color:var(--lime);text-align:right;white-space:nowrap}
+.hero h1{margin:16px 0 16px;font-size:clamp(27px,7.4vw,40px);line-height:1;letter-spacing:-.06em;font-weight:800;color:#fff}
+.disclaimer{position:relative;padding:14px 14px 14px 44px;border-radius:14px;background:rgba(199,255,56,.10);border:1px solid rgba(199,255,56,.45);color:#f8f8f4;font-weight:700;font-size:14.5px;line-height:1.5}
+.disclaimer::before{content:"!";position:absolute;left:12px;top:13px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:var(--ink);font-weight:800;font-size:14px}
+.intro{margin:18px 4px 18px;color:var(--muted-2);font-size:15px;line-height:1.6}
+
+/* ---------- accordion ---------- */
+.list{display:grid;gap:10px}
+.acc{border-radius:18px;background:rgba(255,255,255,.86);border:1px solid var(--line);box-shadow:0 1px 0 rgba(23,23,23,.02);transition:box-shadow .3s var(--ease),border-color .3s,transform .3s var(--ease);scroll-margin-top:calc(var(--hdr) + 12px)}
+.acc.is-open{border-color:var(--line-2);box-shadow:0 14px 32px rgba(23,23,23,.08)}
+.acc-h{margin:0;font:inherit}
+.acc-btn{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;min-height:64px;padding:12px 14px 12px 14px;cursor:pointer;border-radius:18px;-webkit-user-select:none;user-select:none}
+.acc-btn:focus-visible{outline:3px solid var(--peri);outline-offset:-3px}
+.acc-btn:active .acc-ico{transform:scale(.9)}
+.acc-num{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--soft);border:1px solid var(--line);font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--muted-2);font-variant-numeric:tabular-nums;transition:background-color .3s,color .3s,border-color .3s}
+.acc.is-open .acc-num{background:var(--lime-2);border-color:var(--ink);color:var(--ink)}
+.acc-title{flex:1;min-width:0;font-size:17px;font-weight:700;letter-spacing:-.025em;line-height:1.25}
+.acc-ico{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--lime);transition:transform .4s var(--ease),background-color .3s}
+.acc.is-open .acc-ico{transform:rotate(180deg)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s var(--ease)}
+.acc.is-open .acc-panel{grid-template-rows:1fr}
+.acc-clip{overflow:hidden;min-height:0}
+.acc-body{padding:2px 18px 20px;opacity:0;transform:translateY(-6px);transition:opacity .3s var(--ease),transform .4s var(--ease)}
+.acc.is-open .acc-body{opacity:1;transform:none;transition-delay:.06s}
+.acc:not(.is-open) .acc-clip{visibility:hidden;transition:visibility 0s .42s}
+
+/* Quick Reference: dark featured card */
+.acc-quick{background:var(--ink);border-color:var(--ink);color:#f3f3ee;box-shadow:0 0 0 1px rgba(199,255,56,.2),0 18px 40px rgba(23,23,23,.18),0 0 26px rgba(199,255,56,.14)}
+.acc-quick.is-open{border-color:var(--ink);box-shadow:0 0 0 1px rgba(199,255,56,.3),0 22px 46px rgba(23,23,23,.22),0 0 34px rgba(199,255,56,.22)}
+.acc-quick .acc-num{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.acc-quick .acc-title{color:#fff}
+.acc-quick .acc-title::after{content:"Pinned";margin-left:8px;vertical-align:3px;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);border:1px solid rgba(199,255,56,.5);border-radius:999px;padding:3px 7px}
+.acc-quick .acc-ico{background:var(--lime);color:var(--ink)}
+.acc-quick .acc-body h3{color:var(--lime)}
+.acc-quick a{color:#fff}
+.acc-quick table{background:transparent}
+.acc-quick th{background:var(--lime);color:var(--ink)}
+.acc-quick td{border-color:rgba(255,255,255,.12)!important;color:#ecece6}
+.acc-quick tr:nth-child(even) td{background:rgba(255,255,255,.04)}
+.acc-quick .tw{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.02)}
+.acc-quick .acc-body ol li::marker{color:var(--lime)}
+.acc-quick b{color:#fff}
+
+/* ---------- content typography ---------- */
+.acc-body h3{margin:20px 0 8px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--moss)}
+.acc-body > h3:first-child{margin-top:6px}
+.acc-body p{margin:8px 0 10px}
+.acc-body ol,.acc-body ul{margin:6px 0 12px;padding-left:24px}
+.acc-body li{margin:0 0 7px;padding-left:4px}
+.acc-body ol li::marker{font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+.acc-body ul li::marker{color:var(--lime-2);font-size:1.25em}
+.acc-quick .acc-body ul li::marker{color:var(--lime)}
+.acc-body b{font-weight:800}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 14px;border:1px solid var(--line);border-radius:14px;background:var(--white)}
+table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.4}
+th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+td+td,th+th{border-left:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--ink);color:#f8f8f4;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+tr:nth-child(even) td{background:var(--cream)}
+td:first-child{font-weight:700}
+.form td:first-child{width:46%;font-weight:700;font-size:14px}
+.form td:last-child{height:48px;background:var(--white)!important}
+.form tr:nth-child(even) td:first-child{background:var(--cream)}
+.form tr:nth-child(odd) td:first-child{background:var(--soft)}
+
+.note{margin:12px 0;padding:13px 14px 13px 16px;border-radius:12px;background:#eef3ff;border:1px solid #d9e3ff;border-left:4px solid var(--peri);font-size:15px}
+.warn{position:relative;margin:12px 0;padding:14px 14px 14px 48px;border-radius:14px;background:var(--ink);color:#fff;font-weight:800;font-size:15px;line-height:1.5;box-shadow:0 0 0 1px rgba(199,255,56,.25),0 10px 22px rgba(23,23,23,.14)}
+.warn::before{content:"!";position:absolute;left:14px;top:14px;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:var(--lime);color:var(--ink);font-size:14px;font-weight:800}
+.warn a{color:var(--lime);text-decoration-color:rgba(199,255,56,.5)}
+.unc{display:inline-block;margin-left:2px;padding:2px 8px 2px 7px;border-radius:999px;background:var(--peri);color:#1d2a52;border:1px dashed #5b6fa8;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;line-height:1.5;white-space:nowrap;vertical-align:2px}
+.unc::before{content:"?";display:inline-block;margin-right:4px;font-weight:800}
+.acc-quick .unc{background:rgba(200,217,255,.16);color:var(--peri);border-color:rgba(200,217,255,.6)}
+
+/* contents list */
+.acc-toc ol{list-style:none;padding:0;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px;counter-reset:t}
+.acc-toc li{margin:0;padding:0;counter-increment:t}
+.acc-toc a{display:flex;align-items:center;gap:8px;min-height:52px;height:100%;padding:9px 11px;border-radius:12px;background:var(--soft);border:1px solid var(--line);text-decoration:none;font-size:13.5px;font-weight:700;line-height:1.25;letter-spacing:-.01em;transition:background-color .2s,transform .16s var(--ease-2)}
+.acc-toc a::before{content:counter(t,decimal-leading-zero);flex:none;font-size:10px;font-weight:800;color:var(--moss);letter-spacing:.04em}
+.acc-toc a:hover{background:#fff}
+.acc-toc a:active{transform:scale(.97)}
+
+mark{background:var(--lime);color:var(--ink);border-radius:4px;padding:0 2px;box-shadow:0 0 0 1px rgba(23,23,23,.15)}
+.acc-quick mark{background:var(--lime);color:var(--ink)}
+.acc.is-hidden{display:none}
+.empty{margin:18px 4px;padding:22px;border-radius:18px;border:1px dashed var(--line-2);text-align:center;color:var(--muted);font-weight:600}
+.foot{margin:28px 4px 0;text-align:center;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.flash{animation:flash 1.2s var(--ease)}
+@keyframes flash{0%{box-shadow:0 0 0 0 rgba(199,255,56,.9)}100%{box-shadow:0 0 0 14px rgba(199,255,56,0)}}
+
+.totop{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:45;width:52px;height:52px;border-radius:50%;border:0;background:var(--ink);color:var(--lime);display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 1px rgba(199,255,56,.3),0 12px 28px rgba(23,23,23,.25);opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+
+@media (min-width:700px){
+  .hero{padding:30px 28px 26px}
+  .acc-btn{padding:14px 18px}
+  .acc-body{padding:4px 24px 24px}
+}
+@media (max-width:360px){
+  .pill{padding:0 12px;font-size:10px}
+  .acc-toc ol{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+@media print{
+  .top,.totop,.skip{display:none}
+  .acc-panel{grid-template-rows:1fr!important}
+  .acc-clip{visibility:visible!important}
+  .acc-body{opacity:1!important;transform:none!important}
+}
+
+/* 4-column pair tables (call signs) reflow into 2-column pairs on phones */
+table.pairs tr{display:grid;grid-template-columns:minmax(78px,32%) 1fr}
+table.pairs td{border-left:0!important;border-bottom:1px solid var(--line)}
+table.pairs td:nth-child(odd){font-weight:800}
+table.pairs td:nth-child(3){font-weight:800}
+table.pairs td:nth-child(even){font-weight:400}
+table.pairs tr:last-child td:nth-child(n+3){border-bottom:0}
+table.pairs tr:last-child td:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.acc-quick table.pairs td{border-bottom-color:rgba(255,255,255,.12)}
+.acc-quick table.pairs td:nth-child(odd){color:var(--lime)}
+@media (min-width:560px){table.pairs tr{display:table-row}table.pairs td+td{border-left:1px solid var(--line)!important}.acc-quick table.pairs td+td{border-left-color:rgba(255,255,255,.12)!important}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#list">Skip to sections</a>
+<header class="top" id="top">
+  <div class="top-in">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">G</span>
+      <span class="brand-txt"><span class="brand-k">SOC Field Handbook</span><span class="brand-s">Mr G &middot; Fri/Sat overnight</span></span>
+    </div>
+    <label class="search">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M20 20l-3.6-3.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span class="sr">Filter sections</span>
+      <input id="q" type="search" placeholder="Filter sections: alarm, badge, radio..." autocomplete="off" enterkeyhint="search">
+      <button class="clear" id="clear" type="button" aria-label="Clear filter" hidden>&times;</button>
+    </label>
+    <div class="tools">
+      <span class="count" id="count" aria-live="polite"></span>
+      <div class="tool-btns">
+        <button class="pill" id="expand" type="button">Expand all</button>
+        <button class="pill pill-ink" id="collapse" type="button">Collapse all</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="hero-meta"><span>Spark Therapeutics</span><span>12AM-8AM</span></div>
+    <h1>SOC Field Handbook ~ Mr G (Spark Therapeutics, Fri/Sat 12AM-8AM)</h1>
+    <div class="disclaimer" role="note">Personal study notes, not the official SOP. Site procedures and supervisors win. In a live emergency, follow site procedure and call 911 / chain of command immediately.</div>
+  </div>
+  <p class="intro">Audience: a new Security Operations Center (SOC) operator. Read slowly, one section at a time. Items tagged <span class="unc">unconfirmed</span> came from unclear handwriting (marked ?) and must be checked with Shad, Heather, or the shift supervisor.</p>
+
+  <div class="list" id="list">
+
+<section class="acc acc-toc" id="contents" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-contents" id="b-contents">
+      <span class="acc-num">00</span>
+      <span class="acc-title">Contents</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-contents" role="region" aria-labelledby="b-contents">
+    <div class="acc-clip"><div class="acc-body">
+<ol>
+<li><a href="#quick">Quick Reference card</a></li>
+<li><a href="#sites">Sites and people</a></li>
+<li><a href="#radio">Radio call signs and roles</a></li>
+<li><a href="#ccure">C-CURE 9000 basics</a></li>
+<li><a href="#alarm">Clearing an alarm</a></li>
+<li><a href="#helius">Helius and activity reports</a></li>
+<li><a href="#envoy">Envoy reporting</a></li>
+<li><a href="#reject">Badge rejections</a></li>
+<li><a href="#create">Creating a badge</a></li>
+<li><a href="#temp">Temp badges, separations, deliveries</a></li>
+<li><a href="#incident">Incident reports</a></li>
+<li><a href="#medical">Emergency response and medical</a></li>
+<li><a href="#fire">Fire alarm</a></li>
+<li><a href="#ehs">EHS spills and chain of command</a></li>
+<li><a href="#bomb">Bomb threats</a></li>
+<li><a href="#shift">Fri/Sat overnight shift notes</a></li>
+<li><a href="#templates">Fill-in templates</a></li>
+<li><a href="#open">Open questions to confirm</a></li>
+</ol>
+    </div></div>
+  </div>
+</section>
+<section class="acc is-open acc-quick" id="quick" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="true" aria-controls="p-quick" id="b-quick">
+      <span class="acc-num">01</span>
+      <span class="acc-title">Quick Reference</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-quick" role="region" aria-labelledby="b-quick">
+    <div class="acc-clip"><div class="acc-body">
+<h3>Badge rejection types (C-CURE)</h3>
+<div class="tw"><table>
+<tr><th>#</th><th>Type</th><th>Meaning / action</th></tr>
+<tr><td>1</td><td>Disabled</td><td>SOC did it</td></tr>
+<tr><td>2</td><td>Expired</td><td>Call management</td></tr>
+<tr><td>3</td><td>Misread</td><td>Too quick or unresponsive</td></tr>
+<tr><td>4</td><td>Unknown</td><td>ID not in system</td></tr>
+<tr><td>5</td><td>Facility code</td><td>Wrong badge; check camera, no email needed</td></tr>
+<tr><td>6</td><td>Clearance</td><td>Clearance</td></tr>
+</table></div>
+<p>Piggyback (tailgating) = incident report. Facility code = 4-digit number (118). 6 digits = 300 series.</p>
+<h3>Chain of command</h3>
+<ol>
+<li>SOC / Shift Supervisor</li>
+<li>EHS (Jackie, Ryan, Colleen)</li>
+<li>Management (Heather)</li>
+<li>Client Genentech (Mike, George)</li>
+<li>911 / EMS if injuries</li>
+</ol>
+<h3>Radio call signs</h3>
+<div class="tw"><table class="pairs">
+<tr><td>BB1</td><td>Front desk</td><td>A1</td><td>Heather</td></tr>
+<tr><td>3737</td><td>"the 3787 building" <span class="unc">unconfirmed</span></td><td>A2</td><td>Supervisors</td></tr>
+<tr><td>Rover 1</td><td>Aaron</td><td>Rover 2</td><td>Ms. Wendy</td></tr>
+</table></div>
+<h3>Assembly point</h3>
+<p><b>Drexel Square, 30th and Market, NW corner (200 ft away).</b> Brandywine confirms TRUE or FALSE fire alarms.</p>
+<h3>Clear an alarm</h3>
+<ol>
+<li>Click the flash icon (or Actions &gt; Acknowledge).</li>
+<li>Click Acknowledge.</li>
+<li>Type <b>A/C</b>.</li>
+<li>Check: AC=0 cleared, AC=1 not cleared (meaning to confirm, see <a href="#open">Open questions</a>).</li>
+</ol>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="sites" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-sites" id="b-sites">
+      <span class="acc-num">02</span>
+      <span class="acc-title">Sites and people</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-sites" role="region" aria-labelledby="b-sites">
+    <div class="acc-clip"><div class="acc-body">
+<h3>Buildings</h3>
+<ul>
+<li>Building 3025 has 4 floors.</li>
+<li>The 3737 and 3787 buildings are on Market.</li>
+</ul>
+<h3>3rd floor exits</h3>
+<ol>
+<li>Stair 4 (cafe)</li>
+<li>Stair 2 (down the hall)</li>
+<li>Elevator bank</li>
+</ol>
+<h3>Evacuation assembly point</h3>
+<p>Drexel Square, 30th and Market, NW corner (200 ft away).</p>
+<h3>People and groups</h3>
+<div class="tw"><table>
+<tr><th>Who</th><th>Role</th></tr>
+<tr><td>Heather</td><td>AM (Management)</td></tr>
+<tr><td>Judea? <span class="unc">unconfirmed</span></td><td>AA/M</td></tr>
+<tr><td>Aaron</td><td>Rover 1</td></tr>
+<tr><td>Ms. Wendy</td><td>Rover 2</td></tr>
+<tr><td>Brandywine</td><td>Building / property security; confirm true or false fire alarms</td></tr>
+<tr><td>Mike, George</td><td>Client, listed as Genentech</td></tr>
+<tr><td>Jackie, Ryan, Colleen</td><td>EHS personnel</td></tr>
+<tr><td>Mike Grundy</td><td>Add to emails</td></tr>
+</table></div>
+<div class="note">Send email updates from patrols and supervisors. Add Mike Grundy to emails.</div>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="radio" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-radio" id="b-radio">
+      <span class="acc-num">03</span>
+      <span class="acc-title">Radio call signs and roles</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-radio" role="region" aria-labelledby="b-radio">
+    <div class="acc-clip"><div class="acc-body">
+<div class="tw"><table>
+<tr><th>Call sign</th><th>Who / what</th></tr>
+<tr><td>BB1</td><td>Front desk</td></tr>
+<tr><td>3737</td><td>Noted as "the 3787 building" <span class="unc">unconfirmed</span></td></tr>
+<tr><td>A2</td><td>Supervisors</td></tr>
+<tr><td>A1</td><td>Heather</td></tr>
+<tr><td>Rover 2</td><td>Ms. Wendy</td></tr>
+<tr><td>Rover 1</td><td>Aaron</td></tr>
+</table></div>
+<h3>Abbreviations</h3>
+<ul>
+<li><b>SS</b> = supervisor</li>
+<li><b>S/P</b> = SOC, BB1, Rover (meaning of "S/P" to confirm)</li>
+<li><b>AM</b> = Heather</li>
+<li><b>AA/M</b> = Judea? <span class="unc">unconfirmed</span></li>
+</ul>
+<div class="warn">During a bomb threat, DO NOT use radios. See <a href="#bomb">Bomb threats</a>.</div>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="ccure" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-ccure" id="b-ccure">
+      <span class="acc-num">04</span>
+      <span class="acc-title">C-CURE 9000 basics</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-ccure" role="region" aria-labelledby="b-ccure">
+    <div class="acc-clip"><div class="acc-body">
+<p>C-CURE 9000 is the access control system (iSTAR doors).</p>
+<h3>Check a door when the camera is unavailable</h3>
+<ol>
+<li>Open Filter.</li>
+<li>Choose Type.</li>
+<li>Choose door.</li>
+</ol>
+<h3>Count people in an area</h3>
+<ol>
+<li>Open the iSTAR area.</li>
+<li>Right-click the area (for example, 3787 Market).</li>
+<li>Click Personnel.</li>
+<li>It shows the exact count.</li>
+</ol>
+<h3>RICP personnel on site</h3>
+<ol>
+<li>On the left side, open Areas (interior).</li>
+<li>Right-click.</li>
+<li>Click Display Personnel Area.</li>
+<li>Read the number at the top right.</li>
+</ol>
+<h3>Set up monitor tabs</h3>
+<ol>
+<li>Create a tab at the top left.</li>
+<li>Open Security Desk.</li>
+<li>Under Operations, open Monitoring.</li>
+<li>Stay on the Personnel tab.</li>
+</ol>
+<h3>Search camera footage</h3>
+<ol>
+<li>Click Show controls.</li>
+<li>Click the clock (Time).</li>
+<li>Find the exact time.</li>
+</ol>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="alarm" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-alarm" id="b-alarm">
+      <span class="acc-num">05</span>
+      <span class="acc-title">Clearing an alarm</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-alarm" role="region" aria-labelledby="b-alarm">
+    <div class="acc-clip"><div class="acc-body">
+<ol>
+<li>Click the flash icon.</li>
+<li>Click Acknowledge.</li>
+<li>Type <b>A/C</b>.</li>
+</ol>
+<p>Menu path: Actions &gt; Acknowledge &gt; A/C.</p>
+<div class="tw"><table>
+<tr><th>Value</th><th>Notes say</th></tr>
+<tr><td>AC=1</td><td>Not cleared</td></tr>
+<tr><td>AC=0</td><td>Cleared</td></tr>
+<tr><td>1</td><td>Open</td></tr>
+</table></div>
+<div class="note">How "AC=1 / AC=0" relates to "1 = Open" is not clear yet. Confirm with your supervisor (see <a href="#open">Open questions</a>).</div>
+<p>After a fire alarm, clearing all alarms (A/C) is step 2 of re-entry. See <a href="#fire">Fire alarm</a>.</p>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="helius" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-helius" id="b-helius">
+      <span class="acc-num">06</span>
+      <span class="acc-title">Helius and activity reports</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-helius" role="region" aria-labelledby="b-helius">
+    <div class="acc-clip"><div class="acc-body">
+<ul>
+<li>Helius reports come in every 30 minutes.</li>
+<li><b>Every hit must be checked.</b></li>
+<li>Every 40 minutes, fill out an activity report, plus breaks.</li>
+<li>The Helius timestamp is used for EHS reports.</li>
+</ul>
+<h3>Helius activity report fields</h3>
+<div class="tw"><table>
+<tr><th>Field</th><th>Example</th></tr>
+<tr><td>Event</td><td>Car crash</td></tr>
+<tr><td>Location</td><td>N 30th St</td></tr>
+<tr><td>Urgency</td><td>Low</td></tr>
+<tr><td>Description</td><td>&nbsp;</td></tr>
+</table></div>
+<p>Fill-in version: <a href="#t-helius">Helius activity report template</a>.</p>
+<h3>Other logs and tools</h3>
+<ul>
+<li>SOC Alert Tracking / Response Log</li>
+<li>Severity Matrix</li>
+</ul>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="envoy" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-envoy" id="b-envoy">
+      <span class="acc-num">07</span>
+      <span class="acc-title">Envoy reporting</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-envoy" role="region" aria-labelledby="b-envoy">
+    <div class="acc-clip"><div class="acc-body">
+<p>Report these within <b>0.5 miles</b>:</p>
+<ul>
+<li>Car crash</li>
+<li>Activity</li>
+<li>Crime</li>
+<li>Road blockage</li>
+<li>Guns</li>
+</ul>
+<div class="note">Don't report anything below 30th St. How this fits with the 0.5 mile rule is still to be confirmed.</div>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="reject" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-reject" id="b-reject">
+      <span class="acc-num">08</span>
+      <span class="acc-title">Badge rejections (C-CURE)</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-reject" role="region" aria-labelledby="b-reject">
+    <div class="acc-clip"><div class="acc-body">
+<div class="tw"><table>
+<tr><th>#</th><th>Type</th><th>Meaning / action</th></tr>
+<tr><td>1</td><td>Disabled</td><td>SOC did it.</td></tr>
+<tr><td>2</td><td>Expired</td><td>Call management.</td></tr>
+<tr><td>3</td><td>Misread</td><td>Too quick or unresponsive.</td></tr>
+<tr><td>4</td><td>Unknown</td><td>ID not in system.</td></tr>
+<tr><td>5</td><td>Facility code</td><td>Wrong badge. Check camera. No email needed.</td></tr>
+<tr><td>6</td><td>Clearance</td><td>Clearance.</td></tr>
+</table></div>
+<h3>Badge numbers</h3>
+<ul>
+<li>The 4-digit number is the facility code (118).</li>
+<li>6 digits = 300 series.</li>
+</ul>
+<div class="warn">Piggyback (tailgating) = incident report.</div>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="create" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-create" id="b-create">
+      <span class="acc-num">09</span>
+      <span class="acc-title">Creating a badge</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-create" role="region" aria-labelledby="b-create">
+    <div class="acc-clip"><div class="acc-body">
+<ol>
+<li>Get a blank ID.</li>
+<li>Open a new profile.</li>
+<li>On the General tab, enter first name, last name, and personnel type.</li>
+<li>Hit Save after every entry.</li>
+<li>Take the ID, go to Credentials, and enter the ID number.</li>
+</ol>
+<h3>Badge length</h3>
+<div class="tw"><table>
+<tr><th>Type</th><th>Length</th></tr>
+<tr><td>Contractor</td><td>6 months (consultant/final?) <span class="unc">unconfirmed</span></td></tr>
+<tr><td>Employee</td><td>5 years (new blue)</td></tr>
+</table></div>
+<h3>Clearances</h3>
+<ul>
+<li>1 clearance for all = general business hours only.</li>
+<li>Security staff = General Access 24/7 + Security Staff.</li>
+</ul>
+<h3>Photos</h3>
+<ul>
+<li>Head-only crop.</li>
+<li>No visitor sticker.</li>
+<li>Confirm the badge with preview.</li>
+</ul>
+<p>Also noted: "Previous doors" (meaning to confirm).</p>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="temp" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-temp" id="b-temp">
+      <span class="acc-num">10</span>
+      <span class="acc-title">Temp badges, separations, deliveries</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-temp" role="region" aria-labelledby="b-temp">
+    <div class="acc-clip"><div class="acc-body">
+<h3>Temp badge (Admin)</h3>
+<ol>
+<li>Search C-CURE (internal) and EPP (works for Roche).</li>
+<li>Open the employee profile.</li>
+<li>Check for an active badge.</li>
+<li>Give a form of temp ID.</li>
+<li>Document the details.</li>
+<li>Prepare an email: employee or contractor, plus badge number and credentials (on card).</li>
+</ol>
+<h3>Fired or disabled</h3>
+<ol>
+<li>Change vendor = Separation.</li>
+<li>Change card access immediately.</li>
+</ol>
+<h3>After anything changes</h3>
+<ol>
+<li>Email and document.</li>
+<li>Tell Aaron to contact their manager for an extension.</li>
+</ol>
+<h3>Delivery (front desk)</h3>
+<ol>
+<li>Ask for the point of contact.</li>
+<li>Refer to the Delivery Form.</li>
+</ol>
+<div class="note">Mondays: deliver packages to the 2nd floor and loading dock.</div>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="incident" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-incident" id="b-incident">
+      <span class="acc-num">11</span>
+      <span class="acc-title">Incident reports</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-incident" role="region" aria-labelledby="b-incident">
+    <div class="acc-clip"><div class="acc-body">
+<p>Write an incident report for: medical, fire, water leaks, fire alarms. Piggyback (tailgating) also needs one.</p>
+<h3>Rules</h3>
+<ul>
+<li>Cover the 5 W's and how.</li>
+<li>Timestamps are critical (100%).</li>
+<li>Use first and last names.</li>
+<li>Never say "nothing happened".</li>
+</ul>
+<h3>Flow</h3>
+<ol>
+<li>Timestamp (when)</li>
+<li>Who was involved</li>
+<li>Location (where)</li>
+<li>Actions (what)</li>
+</ol>
+<p><b>Notification logs</b> record the chain of command contacted.</p>
+<p>Fill-in version: <a href="#t-incident">Incident report template</a>.</p>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="medical" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-medical" id="b-medical">
+      <span class="acc-num">12</span>
+      <span class="acc-title">Emergency response and medical</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-medical" role="region" aria-labelledby="b-medical">
+    <div class="acc-clip"><div class="acc-body">
+<h3>The 4 emergency response areas</h3>
+<ol>
+<li>Medical Emergency Response</li>
+<li>F&amp;A (fire and alarm) protocols</li>
+<li>EHS</li>
+<li>Bomb Threat Response and Documentation</li>
+</ol>
+<h3>Medical emergency steps</h3>
+<ol>
+<li>Verify.</li>
+<li>Notify SOC.</li>
+<li>If life-threatening, call 911 with patient info.</li>
+<li>Engage resources and notify the health clinic.</li>
+<li>Secure the area.</li>
+</ol>
+<h3>Document</h3>
+<ul>
+<li>The call and patient info</li>
+<li>Times of each action</li>
+<li>Leaving / arriving details</li>
+<li>Hospital name</li>
+<li>Then the incident report</li>
+</ul>
+<h3>Mandatory entries</h3>
+<ul>
+<li>Initial observations</li>
+<li>911 contact / dispatch</li>
+<li>Resident nurse notification</li>
+<li>EMS arrival</li>
+</ul>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="fire" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-fire" id="b-fire">
+      <span class="acc-num">13</span>
+      <span class="acc-title">Fire alarm</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-fire" role="region" aria-labelledby="b-fire">
+    <div class="acc-clip"><div class="acc-body">
+<ol>
+<li>Floor sweeps.</li>
+<li>Call Brandywine to confirm TRUE or FALSE.</li>
+<li>Direct evacuees to Drexel Square (30th and Market, NW corner).</li>
+</ol>
+<h3>Re-entry</h3>
+<ol>
+<li>Only once building engineers or the fire department clear it.</li>
+<li>Clear all alarms (A/C).</li>
+<li>Incident report (time start and end).</li>
+</ol>
+<p>3rd floor exits: Stair 4 (cafe), Stair 2 (down the hall), elevator bank.</p>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="ehs" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-ehs" id="b-ehs">
+      <span class="acc-num">14</span>
+      <span class="acc-title">EHS spills and chain of command</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-ehs" role="region" aria-labelledby="b-ehs">
+    <div class="acc-clip"><div class="acc-body">
+<div class="warn">EHS spills (red bins): DO NOT clean any spill.</div>
+<ol>
+<li>Secure the location (exact lab number).</li>
+<li>Restrict access.</li>
+<li>Record all info in the EHS incident: 5 W's, safety procedures, notification logs, timestamps.</li>
+</ol>
+<p>Use the Helius timestamp for EHS reports.</p>
+<h3>Chain of command</h3>
+<ol>
+<li>SOC / Shift Supervisor</li>
+<li>EHS (Jackie, Ryan, Colleen)</li>
+<li>Management (Heather)</li>
+<li>Client Genentech (Mike, George)</li>
+<li>911 / EMS if injuries</li>
+</ol>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="bomb" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-bomb" id="b-bomb">
+      <span class="acc-num">15</span>
+      <span class="acc-title">Bomb threats</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-bomb" role="region" aria-labelledby="b-bomb">
+    <div class="acc-clip"><div class="acc-body">
+<h3>On the call</h3>
+<ol>
+<li>Maintain contact. Stay calm.</li>
+<li>Checklist: exact words, threat, device type.</li>
+<li>Audio: voice, tone, background.</li>
+<li>Caller ID: copy the number.</li>
+</ol>
+<h3>External notifications</h3>
+<ol>
+<li>Call 911 immediately.</li>
+<li>Genentech security management (Mike or George).</li>
+<li>Brandywine.</li>
+</ol>
+<div class="warn">DO NOT use radios.<br>DO NOT activate the fire alarm.<br>DO NOT evacuate until police arrive.</div>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="shift" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-shift" id="b-shift">
+      <span class="acc-num">16</span>
+      <span class="acc-title">Fri/Sat overnight shift notes</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-shift" role="region" aria-labelledby="b-shift">
+    <div class="acc-clip"><div class="acc-body">
+<ul>
+<li>Stay on the universal camera.</li>
+<li>Loud on speakers (3737).</li>
+<li>Get a walkie.</li>
+<li>Each tour, do a virtual tour.</li>
+<li>Check every Helius hit (reports every 30 minutes).</li>
+<li>Activity report every 40 minutes, plus breaks.</li>
+<li>Send email updates from patrols and supervisors; add Mike Grundy.</li>
+<li>Never say "nothing happened".</li>
+</ul>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="templates" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-templates" id="b-templates">
+      <span class="acc-num">17</span>
+      <span class="acc-title">Fill-in templates</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-templates" role="region" aria-labelledby="b-templates">
+    <div class="acc-clip"><div class="acc-body">
+<h3 id="t-incident">Incident report</h3>
+<p>Built only from the notes. Use first and last names. Timestamps are critical.</p>
+<div class="tw"><table class="form">
+<tr><td>Type (medical / fire / water leak / fire alarm / piggyback)</td><td></td></tr>
+<tr><td>Timestamp (when)</td><td></td></tr>
+<tr><td>Time start / time end</td><td></td></tr>
+<tr><td>Who involved (first and last names)</td><td></td></tr>
+<tr><td>Location (where; exact lab number if EHS)</td><td></td></tr>
+<tr><td>What happened</td><td></td></tr>
+<tr><td>Why</td><td></td></tr>
+<tr><td>How</td><td></td></tr>
+<tr><td>Actions taken (with times)</td><td></td></tr>
+<tr><td>Safety procedures (EHS)</td><td></td></tr>
+<tr><td>Notification log (chain of command contacted, times)</td><td></td></tr>
+</table></div>
+<p><b>Medical add-on:</b></p>
+<div class="tw"><table class="form">
+<tr><td>Initial observations</td><td></td></tr>
+<tr><td>Patient info</td><td></td></tr>
+<tr><td>911 contact / dispatch (time)</td><td></td></tr>
+<tr><td>Resident nurse notified (time)</td><td></td></tr>
+<tr><td>EMS arrival (time)</td><td></td></tr>
+<tr><td>Leaving / arriving details</td><td></td></tr>
+<tr><td>Hospital name</td><td></td></tr>
+</table></div>
+<h3 id="t-helius">Helius activity report</h3>
+<div class="tw"><table class="form">
+<tr><td>Event</td><td></td></tr>
+<tr><td>Location</td><td></td></tr>
+<tr><td>Urgency</td><td></td></tr>
+<tr><td>Description</td><td></td></tr>
+</table></div>
+    </div></div>
+  </div>
+</section>
+<section class="acc" id="open" data-sec>
+  <h2 class="acc-h">
+    <button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-open" id="b-open">
+      <span class="acc-num">18</span>
+      <span class="acc-title">Open questions to confirm with Shad, Heather, or shift supervisor</span>
+      <span class="acc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </h2>
+  <div class="acc-panel" id="p-open" role="region" aria-labelledby="b-open">
+    <div class="acc-clip"><div class="acc-body">
+<ol>
+<li>Unclear handwriting items marked ?: "Judea?" and "consultant/final?" <span class="unc">unconfirmed</span></li>
+<li>Who exactly to call for an expired badge overnight (notes say "management").</li>
+<li>What "Judea? = AA/M" means.</li>
+<li>"Contractor = 6 months (consultant/final?)": what does the note in parentheses mean?</li>
+<li>What "Previous doors" means.</li>
+<li>AC=1 / AC=0 vs "1 = Open": how do these relate?</li>
+<li>Client is listed as Genentech while the company is Spark/Roche. Which is correct, and when?</li>
+<li>The 3737 call sign is noted as "the 3787 building". Possible mix-up?</li>
+<li>What "S/P" means (notes list SOC, BB1, Rover).</li>
+<li>Envoy 0.5 mile rule vs "below 30th St": how do they fit together?</li>
+</ol>
+    </div></div>
+  </div>
+</section>
+  </div>
+  <p class="empty" id="empty" hidden>No sections match that filter.</p>
+  <footer class="foot">Personal study notes &middot; not the official SOP</footer>
+</main>
+<button class="totop" id="totop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<script>
+(function(){
+  var secs=[].slice.call(document.querySelectorAll('[data-sec]'));
+  var q=document.getElementById('q'), clr=document.getElementById('clear');
+  var countEl=document.getElementById('count'), empty=document.getElementById('empty');
+  var hdr=document.querySelector('.top'), totop=document.getElementById('totop');
+  var TOTAL=secs.length-1; /* numbered sections, Contents excluded */
+  var saved=null;
+
+  secs.forEach(function(s){
+    var b=s.querySelector('.acc-body'), t=s.querySelector('.acc-title');
+    s._body=b.innerHTML; s._title=t.innerHTML;
+    s._text=(t.textContent+' '+b.textContent).toLowerCase().replace(/\s+/g,' ');
+    s.querySelector('.acc-btn').addEventListener('click',function(){ setOpen(s,!s.classList.contains('is-open')); });
+  });
+
+  function setOpen(s,open){
+    s.classList.toggle('is-open',open);
+    s.querySelector('.acc-btn').setAttribute('aria-expanded',open?'true':'false');
+  }
+  function visible(){ return secs.filter(function(s){return !s.classList.contains('is-hidden');}); }
+  document.getElementById('expand').addEventListener('click',function(){ visible().forEach(function(s){setOpen(s,true);}); });
+  document.getElementById('collapse').addEventListener('click',function(){ visible().forEach(function(s){setOpen(s,false);}); });
+
+  function setCount(n,filtering){
+    countEl.innerHTML=filtering?('<b>'+n+'</b>/'+TOTAL+' match'):('<b>'+TOTAL+'</b> sections');
+  }
+  setCount(TOTAL,false);
+
+  function esc(r){return r.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+  function highlight(root,re){
+    var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null), nodes=[], n;
+    while((n=w.nextNode())){ if(n.nodeValue.trim()) nodes.push(n); }
+    nodes.forEach(function(node){
+      var v=node.nodeValue; re.lastIndex=0; if(!re.test(v)) return; re.lastIndex=0;
+      var frag=document.createDocumentFragment(), last=0, m;
+      while((m=re.exec(v))){
+        if(m.index>last) frag.appendChild(document.createTextNode(v.slice(last,m.index)));
+        var mk=document.createElement('mark'); mk.textContent=m[0]; frag.appendChild(mk);
+        last=m.index+m[0].length; if(!m[0].length) re.lastIndex++;
+      }
+      if(last<v.length) frag.appendChild(document.createTextNode(v.slice(last)));
+      node.parentNode.replaceChild(frag,node);
+    });
+  }
+
+  function filter(){
+    var raw=q.value.trim().toLowerCase().replace(/\s+/g,' ');
+    clr.hidden=!raw;
+    if(raw && !saved){ saved=secs.map(function(s){return s.classList.contains('is-open');}); }
+    var terms=raw?raw.split(' '):[], re=raw?new RegExp('('+terms.map(esc).join('|')+')','gi'):null, hits=0;
+    secs.forEach(function(s,i){
+      var b=s.querySelector('.acc-body'), t=s.querySelector('.acc-title');
+      b.innerHTML=s._body; t.innerHTML=s._title;
+      if(!raw){ s.classList.remove('is-hidden'); return; }
+      var ok=s.id!=='contents' && terms.every(function(x){return s._text.indexOf(x)>-1;});
+      s.classList.toggle('is-hidden',!ok);
+      if(ok){ hits++; setOpen(s,true); highlight(b,re); highlight(t,re); }
+    });
+    if(!raw && saved){ secs.forEach(function(s,i){setOpen(s,saved[i]);}); saved=null; }
+    empty.hidden=!(raw && hits===0);
+    setCount(raw?hits:TOTAL,!!raw);
+  }
+  var tmr; q.addEventListener('input',function(){ clearTimeout(tmr); tmr=setTimeout(filter,90); });
+  q.addEventListener('keydown',function(e){ if(e.key==='Escape'){ q.value=''; filter(); } if(e.key==='Enter'){ q.blur(); } });
+  clr.addEventListener('click',function(){ q.value=''; filter(); q.focus(); });
+
+  function measure(){ document.documentElement.style.setProperty('--hdr',hdr.offsetHeight+'px'); }
+  measure(); window.addEventListener('resize',measure);
+
+  function goTo(id,push){
+    var el=document.getElementById(id); if(!el) return false;
+    if(id==='top'){ window.scrollTo({top:0,behavior:'smooth'}); return true; }
+    var s=el.closest('[data-sec]'); if(!s) return false;
+    if(s.classList.contains('is-hidden')){ q.value=''; filter(); }
+    var was=s.classList.contains('is-open'); setOpen(s,true);
+    setTimeout(function(){
+      var y=el.getBoundingClientRect().top+window.pageYOffset-hdr.offsetHeight-12;
+      window.scrollTo({top:y,behavior:'smooth'});
+      s.classList.remove('flash'); void s.offsetWidth; s.classList.add('flash');
+    }, was?0:460);
+    if(push && history.replaceState) history.replaceState(null,'','#'+id);
+    return true;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a) return;
+    var id=a.getAttribute('href').slice(1); if(!id||a.classList.contains('skip')) return;
+    if(goTo(id,true)) e.preventDefault();
+  });
+  if(location.hash) setTimeout(function(){ goTo(decodeURIComponent(location.hash.slice(1)),false); },60);
+
+  totop.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  var tick=false; window.addEventListener('scroll',function(){ if(tick) return; tick=true;
+    requestAnimationFrame(function(){ totop.classList.toggle('show',window.pageYOffset>500); tick=false; }); },{passive:true});
+})();
+
+</script>
+</body>
+</html>
